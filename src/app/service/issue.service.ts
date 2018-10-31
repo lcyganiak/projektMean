@@ -59,8 +59,8 @@ onImagePiked(event: Event) {
   this.createForm.patchValue({image: file});
  this.createForm.get('image').updateValueAndValidity();
  const reader = new FileReader();
-  console.log(file);
- console.log(this.createForm);
+//   console.log(file);
+//  console.log(this.createForm);
  reader.onload = () => {
     this.imagePreview = <string>reader.result;
  };
