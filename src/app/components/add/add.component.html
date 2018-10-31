@@ -1,0 +1,64 @@
+<div class="container-fluid">
+
+    <section>
+      <h2 class="h2">Nowa Ksiązka</h2>
+    </section>
+    <div class="row">
+    <div class="col-sm-12 col-md-8">
+      <mat-divider></mat-divider>
+      <mat-card>
+        <form [formGroup]="createForm" class="createForm">
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="Tytuł" formControlName="title" #title>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="Autor" formControlName="author" #author>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="Karegoria" formControlName="category" #category>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="Bohaterowie" formControlName="heroes" #heroes>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <textarea matInput placeholder="Opis" formControlName="description" #description></textarea>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="E-mail" formControlName="email" #email>
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input matInput placeholder="Właściciel" formControlName="owner" #owner>
+          </mat-form-field>
+
+          <mat-form-field class="field-fule-width ">
+            <mat-select placeholder="Dostep" formControlName="access" #access>
+              <mat-option value="true">Wypożycze</mat-option>
+              <mat-option value="false">Wypożyczona</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button type="button" (click)="fileGet.click()">Dodaj zdjęcie</button>
+            <input type="file" #fileGet (change)="onImagePiked($event)">
+          </div>
+
+          <mat-divider></mat-divider>
+          <br><br>
+
+          <button type="submit" (click)="addIssue(title.value, author.value, category.value, heroes.value,
+               description.value, email.value, owner.value, access.value, imagePreview)"
+            [disabled]="createForm.pristine || createForm.invalid" mat-raised-button>Dodaj</button>
+
+        </form>
+      </mat-card>
+    </div>
+
+
+    <div class="col-sm-12 col-md-4 border">
+<p>Zdjęcie twojej Ksiązki </p>
+        <img class="image-preview" *ngIf="imagePreview !== '' && imagePreview && createForm.get('image').valid" [src]="imagePreview"
+          [alt]="createForm.value.title">
+
+    </div>
+  </div>
+</div>
+
