@@ -10,8 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use("/images", express.static(path.join('backend/images')));
-
+app.use('/images', express.static(path.join('backend/images')));
 
 mongoose.connect('mongodb://127.0.0.1:27017/issues');
 
@@ -33,7 +32,7 @@ const storage = multer.diskStorage({
   filename: (req, file, cb) => {
     const name =   file.originalname.toLowerCase().split(' ').join('-') ;
    const ext = MAIN_TYPE_MAP[file.mimetype];
-    cb(null, name);
+    cb(null, Math.floor(Math.random()*40) +name);
   }
 });
 
@@ -53,13 +52,24 @@ router.route('/issues').get((req, res) => {
 router.route('/issues/:id').get((req, res) => {
   Issue.findById(req.params.id, (err, issue) => {
     if (err) console.log(err);
-    else res.json(issue);
+    else
+    res.json(issue);
   });
 });
 
 router.route('/issues/add').post(multer({storage: storage}).single('image'),(req, res) => {
  const url =req.protocol + '://' + req.get('host');
   let issue = new Issue(req.body);
+  issue.title = req.body.title;
+      issue.author =req.body.author;
+      issue.category = req.body.category;
+      issue.heroes = req.body.heroes;
+      issue.description = req.body.description;
+      issue.owner = req.body.owner;
+      issue.email = req.body.email;
+      issue.access = req.body.access;
+      issue.image = req.body.image;
+      issue.imagePath = url +'/backend/images/' + req.file.filename;
   issue.save()
     .then(issue => {
       res.status(200).json({ 'issue': 'Add successfully'});
@@ -84,7 +94,7 @@ router.route('/issues/update/:id').post(multer({storage: storage}).single('image
       issue.owner = req.body.owner;
       issue.email = req.body.email;
       issue.access = req.body.access;
-     // issue.image = req.body.image;
+      issue.image = req.body.image;
       issue.imagePath = url +'/backend/images/' + req.file.filename;
 
 

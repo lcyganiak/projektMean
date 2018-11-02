@@ -35,10 +35,12 @@ export class DetalComponent implements OnInit {
         email: '',
         owner: '',
         access: '',
-        image: ''
+        image: '',
+        imagePath: ''
       });
      }
      editIssue(id) {
+       console.log(this.issues);
    this.router.navigate([`/edit/${id}`]);
  }
  deleteIssues(id) {
@@ -67,6 +69,7 @@ this.issues = data;
         this.detalForm.get('owner').setValue(this.book.owner);
         this.detalForm.get('access').setValue(this.book.access);
         this.detalForm.get('image').setValue(this.book.image);
+        this.detalForm.get('imagePath').setValue(this.book.imagePath);
       });
     });
   }

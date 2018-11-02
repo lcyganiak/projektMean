@@ -30,15 +30,9 @@ export class AddComponent implements OnInit {
       owner: ['', Validators.required],
       access: ['', Validators.required],
       image: ['',  Validators.required],  asyncValidators: [imgType],
+      imagePath: ''
 
     });
-   }
-
-   addIssue( title, author, category, heroes, description, email, owner, access) {
-        // tslint:disable-next-line:max-line-length
-        this.issueService.addIssues(title, author, category, heroes, description, owner, email, access, this.createForm.value.image).subscribe(() => {
-          this.router.navigate(['/list']);
-        });
    }
    onImagePiked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
@@ -52,6 +46,14 @@ export class AddComponent implements OnInit {
    };
    reader.readAsDataURL(file);
       }
+
+   addIssue( title, author, category, heroes, description, email, owner, access, imagePath) {
+        // tslint:disable-next-line:max-line-length
+        this.issueService.addIssues(title, author, category, heroes, description, owner, email, access, this.createForm.value.image, this.createForm.value.imagePath).subscribe(() => {
+          this.router.navigate(['/list']);
+        });
+   }
+
   ngOnInit() {
   }
 

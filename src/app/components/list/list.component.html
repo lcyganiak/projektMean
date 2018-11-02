@@ -26,7 +26,8 @@
             <tr>
               <th class="index">{{i+1}}</th>
               <th class="title">{{issue.title | textTransform }}</th>
-              <th class="autor">{{issue.author | filter}}</th>
+              <th class="autor">{{issue.author}}</th>
+              <th><img src="{{issue.imagePath}}" alt=""></th>
               <br>
             </tr>
             <th class="button"><button type="button"  class="btn btn-danger" (click)="detalsForm(issue._id)">Więcej</button></th>

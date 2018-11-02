@@ -7,6 +7,7 @@ import { FormGroup } from '@angular/forms';
 export class IssueService {
   uri = 'http://localhost:4000/issues';
 
+
   createForm: FormGroup;
   imagePreview: string;
 
@@ -17,11 +18,11 @@ export class IssueService {
 getIssuesById(id) {
   return this.http.get(`${this.uri}/${id}`);
 }
-addIssues(title, author, category, heroes, description, owner, email, access, image: File) {
+addIssues(title, author, category, heroes, description, owner, email, access, image: File, imagePath) {
 
   const issue = new FormData();
   issue.append('title', title);
-  issue.append('athor', author);
+  issue.append('author', author);
   issue.append('category', category);
   issue.append('heroes', heroes);
   issue.append('description', description);
@@ -29,6 +30,7 @@ addIssues(title, author, category, heroes, description, owner, email, access, im
   issue.append('email', email);
   issue.append('access', access);
   issue.append('image', image);
+   issue.append('imagePath', imagePath);
 
 
         return this.http.post

@@ -25,7 +25,7 @@ export class EditComponent implements OnInit {
    }
    createForm() {
     this.updateForm = this.fb.group({
-      title: ['', Validators.required],
+      title: '',
       author: '',
       category: '',
       heroes: '',
@@ -33,7 +33,8 @@ export class EditComponent implements OnInit {
       email: '',
       owner: '',
       access: '',
-      image: ['',  Validators.required], asyncValidators: [imgType]
+      image: ['',  Validators.required], asyncValidators: [imgType],
+      imagePath: ''
     });
    }
    onImagePiked(event: Event) {
@@ -41,8 +42,8 @@ export class EditComponent implements OnInit {
     this.updateForm.patchValue({image: file});
    this.updateForm.get('image').updateValueAndValidity();
    const reader = new FileReader();
-    console.log(file);
-   console.log(this.createForm);
+  //   console.log(file);
+  //  console.log(this.createForm);
    reader.onload = () => {
 
       this.imagePreview = <string>reader.result;
@@ -65,11 +66,11 @@ export class EditComponent implements OnInit {
         this.updateForm.get('owner').setValue(this.issue.owner);
         this.updateForm.get('access').setValue(this.issue.access);
         this.updateForm.get('image').setValue(this.issue.image);
-        // this.updateForm.get('imagePath').setValue(this.issue.imagePath);
+        this.updateForm.get('imagePath').setValue(this.issue.imagePath);
       });
     });
   }
-  updateIssue(title, author, category, heroes, description, email,  owner, access, image) {
+  updateIssue(title, author, category, heroes, description, email,  owner, access) {
       // tslint:disable-next-line:max-line-length
       this.issueService.updateIssues(this.id, title, author, category, heroes, description, owner, email, access, this.updateForm.value.image).subscribe(() => {
           this.snackBar.open('Book is update', 'ok', {

@@ -28,11 +28,11 @@ let Issue = new Schema({
     type: String
   },
   access: {
-    type: Boolean
-  },
-  image: {
     type: String
   },
+  // image: {
+  //   type: String
+  // },
 imagePath: {
   type: String
 
