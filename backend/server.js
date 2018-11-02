@@ -10,7 +10,7 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
-app.use('/images', express.static(path.join('backend/images')));
+app.use('/images', express.static('images'));
 
 mongoose.connect('mongodb://127.0.0.1:27017/issues');
 
@@ -69,7 +69,7 @@ router.route('/issues/add').post(multer({storage: storage}).single('image'),(req
       issue.email = req.body.email;
       issue.access = req.body.access;
       issue.image = req.body.image;
-      issue.imagePath = url +'/backend/images/' + req.file.filename;
+      issue.imagePath = url +'/images/' + req.file.filename;
   issue.save()
     .then(issue => {
       res.status(200).json({ 'issue': 'Add successfully'});
@@ -95,7 +95,7 @@ router.route('/issues/update/:id').post(multer({storage: storage}).single('image
       issue.email = req.body.email;
       issue.access = req.body.access;
       issue.image = req.body.image;
-      issue.imagePath = url +'/backend/images/' + req.file.filename;
+      issue.imagePath = url +'/images/' + req.file.filename;
 
 
 
