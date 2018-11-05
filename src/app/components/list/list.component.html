@@ -1,29 +1,29 @@
-
+<hr>
 <div>
- <div class="container-fluid main-book-list"  *ngFor='let issue of issues ; let i = index'>
-  <div class="row ">
+  <div class="container-fluid main-book-list" *ngFor='let issue of issues ; let i = index'>
+    <div class="row ">
 
-    <div class="col-sm-12 col-md-4 text-center ">
+      <div class="col-sm-12 col-lg-4 text-center ">
 
-<h1 class="h3">Tytuł: <br> <p id="listTitle">{{issue.title | textTransform }}</p></h1>
-
-
- <h4 class="h4">Autor: <br> <p id="listAuthor">{{issue.author}}</p></h4>
-
+        <h1 class="h3">Tytuł: <br>
+          <p id="listTitle">{{issue.title | textTransform }}</p>
+        </h1>
 
 
-
-    </div>
-    <div class="col-sm-12 col-md-4 text-center">
+        <h4 class="h4">Autor: <br>
+          <p id="listAuthor">{{issue.author}}</p>
+        </h4>
+      </div>
+      <div class="col-sm-12 col-lg-4 text-center">
         <img [src]='issue.imagePath' class="img-fluid imgList">
-    </div>
-    <div class="col-sm-12 col-md-4 text-center">
+      </div>
+      <div class="col-sm-12 col-lg-4 text-center">
 
         <button type="button" class="btn  main-button" (click)="detalsForm(issue._id)"> więcej</button>
-    </div>
+      </div>
 
+    </div>
+    <hr>
   </div>
-  <hr>
-</div>
 </div>
 <router-outlet></router-outlet>

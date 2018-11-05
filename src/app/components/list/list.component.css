@@ -1,33 +1,133 @@
-.main-table{
-  color: darkblue;
-  width: 80%;
-  margin: 0 auto;
-}
-/* .title {
-  width: 100%;
-} */
-.main-book-list {
-  margin:0;
-}
-.imgList {
-  width: 40%;
-  margin-top: 10%;
-}
-.h3 p {
-  font-family: 'Pattaya', sans-serif;
-}
-#listTitle,
-#listAuthor {
-  font-family: 'Pacifico', cursive;
-  margin: 2em;
-}
-hr {
-  background-color: rgba(0,123,255,.5);
-}
-.main-button{
-  width: 100%;
-  height: 100%;
-  background: transparent;
 
-}
 
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px){
+  hr {
+    background-color: rgba(0,123,255,.5);
+    margin: 1em;
+  }
+  .h3,
+  h4 {
+    font-family: 'Courgette', cursive;
+  }
+  .imgList {
+    width: 100%;
+    margin-top: 10%;
+  }
+  #listTitle,
+  #listAuthor {
+    font-family: 'Pacifico', cursive;
+    margin: 0.2em;
+    margin: 0.2em;
+    color: #007bff;
+  }
+  .main-button{
+    width: 100%;
+    height: 100%;
+    background: #007bff;
+    margin: 0.5em 0 0.5em 0;
+
+  }
+ }
+
+ /* Small devices (landscape phones, less than 768px) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  hr {
+    background-color: rgba(0,123,255,.5);
+    margin: 1em;
+  }
+  .h3,
+  h4 {
+    font-family: 'Courgette', cursive;
+  }
+  .imgList {
+    width: 80%;
+    margin-top: 10%;
+  }
+  #listTitle,
+  #listAuthor {
+    font-family: 'Pacifico', cursive;
+    margin: 0.2em;
+    color: #007bff;
+  }
+  .main-button{
+    width: 80%;
+    height: 100%;
+    background: #007bff;
+    margin: 0.5em 0 0.5em 0;
+
+  }
+ }
+
+/* Medium devices (tablets, less than 992px) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  hr {
+    background-color: rgba(0,123,255,.5);
+    margin: 1em;
+  }
+  .h3,
+  .h4 {
+    font-family: 'Courgette', cursive;
+  }
+  .imgList {
+    width: 60%;
+    margin-top: 10%;
+  }
+  #listTitle,
+  #listAuthor {
+    font-family: 'Pacifico', cursive;
+    margin: 0.2em;
+    color: #007bff;
+  }
+  .h3,
+  h4 {
+    font-family: 'Courgette', cursive;
+  }
+  .main-button{
+    width: 60%;
+    height: 100%;
+    background: #007bff;
+    margin: 0.5em 0 0.5em 0;
+
+  }
+ }
+
+/* Large devices (desktops) */
+@media (min-width: 992px) and (max-width: 5000px) {
+
+  .h3,
+  h4 {
+    font-family: 'Courgette';
+    margin-top: 0.5em;
+
+  }
+
+
+  .main-book-list {
+    margin:0;
+
+  }
+  .imgList {
+    width: 40%;
+    margin-top: 0.5em;
+
+  }
+
+  #listTitle,
+  #listAuthor {
+    font-family: 'Pacifico', cursive;
+    margin: 0.2em;
+    color: #007bff;
+  }
+  hr {
+    background-color: rgba(0,123,255,.5);
+    margin: 1em 0 1em 0;
+  }
+  .main-button{
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+  }
+
+ }
