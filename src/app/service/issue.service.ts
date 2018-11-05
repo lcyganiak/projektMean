@@ -7,7 +7,6 @@ import { FormGroup } from '@angular/forms';
 export class IssueService {
   uri = 'http://localhost:4000/issues';
 
-
   createForm: FormGroup;
   imagePreview: string;
 
@@ -40,7 +39,7 @@ updateIssues(id, title, author, category, heroes, description, owner, email, acc
 
   const issue = new FormData();
   issue.append('title', title);
-  issue.append('athor', author);
+  issue.append('author', author);
   issue.append('category', category);
   issue.append('heroes', heroes);
   issue.append('description', description);

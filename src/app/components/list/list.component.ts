@@ -11,7 +11,7 @@ import { Issue } from '../../issue.model';
 })
 export class ListComponent implements OnInit {
   issues: Issue[];
- // displayColumns = ['title', 'author', 'category', 'heroes', 'description', 'owner', 'emial', 'access', 'image'];
+  displayColumns = ['title', 'author', 'category', 'heroes', 'description', 'owner', 'emial', 'access', 'imagePath'];
 
 
 

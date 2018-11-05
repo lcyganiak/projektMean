@@ -33,7 +33,7 @@ export class EditComponent implements OnInit {
       email: '',
       owner: '',
       access: '',
-      image: ['',  Validators.required], asyncValidators: [imgType],
+      image: '', asyncValidators: [imgType],
       imagePath: ''
     });
    }
@@ -42,8 +42,6 @@ export class EditComponent implements OnInit {
     this.updateForm.patchValue({image: file});
    this.updateForm.get('image').updateValueAndValidity();
    const reader = new FileReader();
-  //   console.log(file);
-  //  console.log(this.createForm);
    reader.onload = () => {
 
       this.imagePreview = <string>reader.result;
@@ -72,7 +70,7 @@ export class EditComponent implements OnInit {
   }
   updateIssue(title, author, category, heroes, description, email,  owner, access) {
       // tslint:disable-next-line:max-line-length
-      this.issueService.updateIssues(this.id, title, author, category, heroes, description, owner, email, access, this.updateForm.value.image).subscribe(() => {
+      this.issueService.updateIssues(this.id, this.updateForm.value.title, this.updateForm.value.author, this.updateForm.value.category, this.updateForm.value.heroes, this.updateForm.value.description, this.updateForm.value.owner, this.updateForm.value.email, this.updateForm.value.access, this.updateForm.value.image).subscribe(() => {
           this.snackBar.open('Book is update', 'ok', {
               duration: 5000
           });
@@ -81,6 +79,7 @@ export class EditComponent implements OnInit {
   fetchIssues() {
     this.issueService.getIssues().subscribe((data: Issue[]) => {
   this.issue = data;
+
    return this.issue;
     });
   }

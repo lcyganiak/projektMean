@@ -1,62 +1,29 @@
+
 <div>
+ <div class="container-fluid main-book-list"  *ngFor='let issue of issues ; let i = index'>
+  <div class="row ">
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-sm-12 col-md-12">
-      <h1>W naszej e-bibliotece mamy   książek.</h1>
+    <div class="col-sm-12 col-md-4 text-center ">
 
-     <div class="input-group">
-        <span class="input-group-addon">Szukaj:</span>
-        <input type="text" class="form-control" placeholder="Tytuł ksiązki"  >
-      </div>
-      <br>
+<h1 class="h3">Tytuł: <br> <p id="listTitle">{{issue.title | textTransform }}</p></h1>
+
+
+ <h4 class="h4">Autor: <br> <p id="listAuthor">{{issue.author}}</p></h4>
 
 
 
-      <div class="table-responsive main-table">
-        <table class="table table-hover">
-          <thead>
-            <tr>
-              <th>LP</th>
-              <th>Tytuł</th>
-              <th>Autor</th>
-            </tr>
-          </thead>
-          <tbody *ngFor='let issue of issues ; let i = index'>
-            <tr>
-              <th class="index">{{i+1}}</th>
-              <th class="title">{{issue.title | textTransform }}</th>
-              <th class="autor">{{issue.author}}</th>
-
-              <br>
-            </tr>
-            <th class="button"><button type="button"  class="btn btn-danger" (click)="detalsForm(issue._id)">Więcej</button></th>
-          </tbody>
-        </table>
-
-      </div>
 
     </div>
-
-
-  </div>
-
-
-</div>
-</div>
-<!-- <ng-template #noIssues>
-
-    <div class="container">
-  <div class="row">
-  <div class="col-sm-12 col-md-12">
-    <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad a, tempore repudiandae labore sequi explicabo saepe. Quae earum cupiditate aut pariatur ullam voluptate in ex culpa ab, unde perspiciatis deleniti?</p>
-  </div>
-
-  </div>
-
+    <div class="col-sm-12 col-md-4 text-center">
+        <img [src]='issue.imagePath' class="img-fluid imgList">
     </div>
-    <p>Strasnie mało książek </p>
-    <button type="button"  class="btn btn-danger"  routerLink="/add">Dodaj</button>
+    <div class="col-sm-12 col-md-4 text-center">
 
-  </ng-template> -->
+        <button type="button" class="btn  main-button" (click)="detalsForm(issue._id)"> więcej</button>
+    </div>
+
+  </div>
+  <hr>
+</div>
+</div>
 <router-outlet></router-outlet>

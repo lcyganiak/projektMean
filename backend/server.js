@@ -101,6 +101,7 @@ router.route('/issues/update/:id').post(multer({storage: storage}).single('image
 
 
 
+
       issue.save().then(issue =>{
         res.json('Update done');
       }).catch(err => {

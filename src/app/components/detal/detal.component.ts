@@ -40,8 +40,9 @@ export class DetalComponent implements OnInit {
       });
      }
      editIssue(id) {
-       console.log(this.issues);
+
    this.router.navigate([`/edit/${id}`]);
+   console.log(this.editIssue);
  }
  deleteIssues(id) {
   this.issueService.deleteIssues(id).subscribe(() => {

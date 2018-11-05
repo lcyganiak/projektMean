@@ -3,3 +3,31 @@
   width: 80%;
   margin: 0 auto;
 }
+/* .title {
+  width: 100%;
+} */
+.main-book-list {
+  margin:0;
+}
+.imgList {
+  width: 40%;
+  margin-top: 10%;
+}
+.h3 p {
+  font-family: 'Pattaya', sans-serif;
+}
+#listTitle,
+#listAuthor {
+  font-family: 'Pacifico', cursive;
+  margin: 2em;
+}
+hr {
+  background-color: rgba(0,123,255,.5);
+}
+.main-button{
+  width: 100%;
+  height: 100%;
+  background: transparent;
+
+}
+

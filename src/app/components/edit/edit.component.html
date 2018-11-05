@@ -24,10 +24,10 @@
       <mat-form-field class="field-fule-width ">
         <input matInput placeholder="E-mail" formControlName="email" #email>
       </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Właściciel" formControlName="owner" #owner>
-      </mat-form-field>
 
+      <mat-form-field class="field-fule-width ">
+          <input matInput placeholder="Właściciel" formControlName="owner" #owner>
+        </mat-form-field>
       <mat-form-field class="field-fule-width ">
           <mat-select placeholder="Dostep" formControlName="access" #access>
             <mat-option value="true">Wypożycze</mat-option>
@@ -50,9 +50,9 @@
 
 
 
-
     </form>
   </mat-card>
+
 
   <img class="image-preview" *ngIf="imagePreview !== '' && imagePreview && updateForm.get('image').valid" [src]="imagePreview"
   [alt]="updateForm.value.title">
