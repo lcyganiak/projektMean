@@ -1,29 +1,30 @@
-<hr>
-<div>
-  <div class="container-fluid main-book-list" *ngFor='let issue of issues ; let i = index'>
-    <div class="row ">
 
-      <div class="col-sm-12 col-lg-4 text-center ">
+<mat-spinner *ngIf="isLoading"></mat-spinner>
+<mat-expansion-panel *ngFor="let book of issues" class="panelListBook">
+  <mat-expansion-panel-header>
+    <span class="titleList">Tytuł:</span> <p id="listTitle">  {{ book.title | textTransform }}</p>
+  </mat-expansion-panel-header>
 
-        <h1 class="h3">Tytuł: <br>
-          <p id="listTitle">{{issue.title | textTransform }}</p>
-        </h1>
-
+  <div class="container-fluid main-book-list">
+    <div class="row">
+      <div class="col-sm-12 col-lg-4 text-center">
 
         <h4 class="h4">Autor: <br>
-          <p id="listAuthor">{{issue.author}}</p>
+          <p id="listTitle">{{book.author }}</p>
         </h4>
+
+      </div>
+      <div class="col-sm-12 col-lg-4 text-center imgListBox">
+        <img [src]="book.imagePath" [alt]="book.title" class="img-fluid imgList">
       </div>
       <div class="col-sm-12 col-lg-4 text-center">
-        <img [src]='issue.imagePath' class="img-fluid imgList">
+        <button type="button" class="btn  main-button" (click)="detalsForm(book._id)"> więcej</button>
       </div>
-      <div class="col-sm-12 col-lg-4 text-center">
-
-        <button type="button" class="btn  main-button" (click)="detalsForm(issue._id)"> więcej</button>
-      </div>
-
     </div>
-    <hr>
   </div>
-</div>
+  <mat-action-row>
+
+  </mat-action-row>
+</mat-expansion-panel>
+<mat-paginator [length]='totalBook' [pageSize]=' bookPerPage'  [pageSizeOptions]='pageSizeOptions' (page)='onChangePage($event)'></mat-paginator>
 <router-outlet></router-outlet>

@@ -19,6 +19,10 @@ export class DetalComponent implements OnInit {
   id: String;
   detalForm: FormGroup;
   issues: Issue[];
+  totalBook = 10;
+  bookPerPage = 5;
+  currentPage = 1;
+  pageSizeOptions = [];
 
   constructor(private issueService: IssueService, private router: Router,
     private route: ActivatedRoute, private fb: FormBuilder, private snackBar: MatSnackBar) {
@@ -42,7 +46,7 @@ export class DetalComponent implements OnInit {
      editIssue(id) {
 
    this.router.navigate([`/edit/${id}`]);
-   console.log(this.editIssue);
+    // console.log(this.editIssue);
  }
  deleteIssues(id) {
   this.issueService.deleteIssues(id).subscribe(() => {
@@ -50,7 +54,7 @@ export class DetalComponent implements OnInit {
   });
 }
 fetchIssues() {
-  this.issueService.getIssues().subscribe((data: Issue[]) => {
+  this.issueService.getIssues(this.bookPerPage, this.currentPage).subscribe((data: Issue[]) => {
 this.issues = data;
  return this.issues;
   });

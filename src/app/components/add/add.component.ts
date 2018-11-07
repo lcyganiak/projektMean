@@ -29,7 +29,7 @@ export class AddComponent implements OnInit {
       email: ['', Validators.required],
       owner: ['', Validators.required],
       access: ['', Validators.required],
-      image: ['',  Validators.required],  asyncValidators: [imgType],
+      image: '',  asyncValidators: [imgType],
       imagePath: ''
 
     });

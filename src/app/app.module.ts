@@ -1,9 +1,11 @@
 import { BrowserModule } from '@angular/platform-browser';
+import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatToolbarModule, MatFormFieldModule, MatInputModule, MatOptionModule, MatSelectModule,
    MatIconModule, MatButtonModule, MatCardModule, MatTableModule, MatDividerModule, MatSnackBarModule } from '@angular/material';
 import { AppComponent } from './app.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './components/home/home.component';
@@ -18,6 +20,7 @@ import { DetalComponent } from './components/detal/detal.component';
 import { SortNamePipe } from './pipe/sortNane/sort-name.pipe';
 import { FilterPipe } from './pipe/filtr/filter.pipe';
 import { TextTransformPipe } from './pipe/text-transform/text-transform.pipe';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { TextTransformPipe } from './pipe/text-transform/text-transform.pipe';
      MatTableModule,
      MatDividerModule,
      MatSnackBarModule,
-     ReactiveFormsModule
+     ReactiveFormsModule,
+     MatExpansionModule,
+     MatPaginatorModule,
+     MatProgressSpinnerModule
   ],
   providers: [IssueService],
   bootstrap: [AppComponent]

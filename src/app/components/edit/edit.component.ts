@@ -17,6 +17,10 @@ export class EditComponent implements OnInit {
   issue: any = {};
   updateForm: FormGroup;
   imagePreview: string;
+  totalBook = 10;
+   bookPerPage = 5;
+   currentPage = 1;
+   pageSizeOptions = [];
 
 
   constructor(private issueService: IssueService, private router: Router,
@@ -70,18 +74,18 @@ export class EditComponent implements OnInit {
   }
   updateIssue(title, author, category, heroes, description, email,  owner, access) {
       // tslint:disable-next-line:max-line-length
-      this.issueService.updateIssues(this.id, this.updateForm.value.title, this.updateForm.value.author, this.updateForm.value.category, this.updateForm.value.heroes, this.updateForm.value.description, this.updateForm.value.owner, this.updateForm.value.email, this.updateForm.value.access, this.updateForm.value.image).subscribe(() => {
+      this.issueService.updateIssues(this.id, title, author, category, heroes, description, owner, email, access, this.updateForm.value.image).subscribe(() => {
           this.snackBar.open('Book is update', 'ok', {
               duration: 5000
           });
       });
   }
   fetchIssues() {
-    this.issueService.getIssues().subscribe((data: Issue[]) => {
+    this.issueService.getIssues(this.bookPerPage, this.currentPage).subscribe((data: Issue[]) => {
   this.issue = data;
 
    return this.issue;
-    });
-  }
+     });
+   }
 }
 

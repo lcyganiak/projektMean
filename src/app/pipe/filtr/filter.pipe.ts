@@ -7,7 +7,8 @@ import { IssueService } from 'src/app/service/issue.service';
 })
 export class FilterPipe implements PipeTransform {
 
-  transform(value: any, args?: any): any {
+  transform(value: Array<Issue>, args?: any) {
+  console.log(value);
     return value;
   }
 

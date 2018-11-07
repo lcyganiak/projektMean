@@ -4,7 +4,6 @@ import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import Issue from './moduls/Issue';
 import multer from 'multer';
-import path from 'path';
 
 const app = express();
 app.use(cors());
@@ -42,8 +41,19 @@ const connection = mongoose.connection;
 connection.once('open', () => {
   console.log('MongoDb database connection successfule!');
 });
+
 router.route('/issues').get((req, res) => {
-  Issue.find((err, issues) => {
+ const pageSize = +req.query.pagesize;
+ const currentPage = +req.query.page;
+ const bookQuery = Issue.find();
+
+
+
+ if (pageSize && currentPage) {
+bookQuery.skip(pageSize *(currentPage -1)).limit(pageSize);
+
+ }
+  bookQuery.find((err, issues) => {
     if (err) console.log(err);
     else res.json(issues);
   });
@@ -97,11 +107,6 @@ router.route('/issues/update/:id').post(multer({storage: storage}).single('image
       issue.image = req.body.image;
       issue.imagePath = url +'/images/' + req.file.filename;
 
-
-
-
-
-
       issue.save().then(issue =>{
         res.json('Update done');
       }).catch(err => {
@@ -122,6 +127,6 @@ router.route('/issues/delete/:id').get((req, res) => {
 
 app.use('/', router);
 
-app.listen(4000, () => console.log('Express server running on port 4000'));
+app.listen(4000, () => console.log('Express server running'));
 
 

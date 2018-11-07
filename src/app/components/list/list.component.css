@@ -2,9 +2,9 @@
 
 /* Extra small devices (portrait phones, less than 576px) */
 @media (max-width: 575.98px){
-  hr {
-    background-color: rgba(0,123,255,.5);
-    margin: 1em;
+  span.titleList  {
+    margin: 3px;
+   font-family: 'Pacifico', cursive;
   }
   .h3,
   h4 {
@@ -32,9 +32,9 @@
 
  /* Small devices (landscape phones, less than 768px) */
 @media (min-width: 576px) and (max-width: 767.98px) {
-  hr {
-    background-color: rgba(0,123,255,.5);
-    margin: 1em;
+  span.titleList  {
+    margin: 3px;
+    font-family: 'Pacifico', cursive;
   }
   .h3,
   h4 {
@@ -61,9 +61,9 @@
 
 /* Medium devices (tablets, less than 992px) */
 @media (min-width: 768px) and (max-width: 991.98px) {
-  hr {
-    background-color: rgba(0,123,255,.5);
-    margin: 1em;
+  span.titleList  {
+    margin: 3px;
+    font-family: 'Pacifico', cursive;
   }
   .h3,
   .h4 {
@@ -94,7 +94,10 @@
 
 /* Large devices (desktops) */
 @media (min-width: 992px) and (max-width: 5000px) {
-
+  span.titleList  {
+    margin: 3px;
+    font-family: 'Pacifico', cursive;
+  }
   .h3,
   h4 {
     font-family: 'Courgette';
@@ -107,9 +110,13 @@
     margin:0;
 
   }
+  .imgListBox{
+    width: 100%;
+  }
   .imgList {
     width: 40%;
     margin-top: 0.5em;
+
 
   }
 
@@ -129,5 +136,10 @@
     background: transparent;
 
   }
-
+.panelListBook {
+  background-color:wheat;
+}
+mat-paginator {
+  margin: 1rem;
+}
  }

@@ -11,8 +11,14 @@ export class IssueService {
   imagePreview: string;
 
   constructor(private http: HttpClient) {}
-  getIssues() {
-    return this.http.get(`${this.uri}`);
+  getIssues(postPrePage: number, currentPage: number) {
+
+    const queryParams = `?pagesize=${postPrePage}&page=${currentPage}`;
+    return this.http.get('http://localhost:4000/issues' + queryParams);
+   }
+   getLenght () {
+      return this.http.get('http://localhost:4000/issues');
+
    }
 getIssuesById(id) {
   return this.http.get(`${this.uri}/${id}`);
@@ -35,7 +41,7 @@ addIssues(title, author, category, heroes, description, owner, email, access, im
         return this.http.post
         (`${this.uri}/add`, issue);
 }
-updateIssues(id, title, author, category, heroes, description, owner, email, access, image: File) {
+updateIssues(id, title, author, category, heroes, description, owner, email, access, image: File | string) {
 
   const issue = new FormData();
   issue.append('title', title);
@@ -60,8 +66,6 @@ onImagePiked(event: Event) {
   this.createForm.patchValue({image: file});
  this.createForm.get('image').updateValueAndValidity();
  const reader = new FileReader();
-//   console.log(file);
-//  console.log(this.createForm);
  reader.onload = () => {
     this.imagePreview = <string>reader.result;
  };
