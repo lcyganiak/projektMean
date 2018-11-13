@@ -1,13 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { IssueService } from '../../service/issue.service';
-import { Router, ActivatedRoute } from '@angular/router';
-import { MatTableDataSource, PageEvent } from '@angular/material';
+import { Router } from '@angular/router';
+import {PageEvent } from '@angular/material';
 import { Issue } from '../../issue.model';
 
 @Component({
   selector: 'app-list',
   templateUrl: './list.component.html',
-  styleUrls: ['./list.component.css']
+  styleUrls: ['./list.component.scss']
 })
 export class ListComponent implements OnInit {
   issues: Issue[];
@@ -15,7 +15,7 @@ export class ListComponent implements OnInit {
   totalBook = 10;
   bookPerPage = 10;
   currentPage = 1;
-  pageSizeOptions = [1, 5, 10, 15, 20, 25, 30];
+  pageSizeOptions = [5, 10, 15, 20, 25, 30];
 
   constructor(private issueService: IssueService, private router: Router) { }
 
@@ -54,5 +54,7 @@ this.fetchIssues(this.bookPerPage, this.currentPage);
  }
  detalsForm(id) {
    this.router.navigate([`/detal/${id}`]);
+
  }
+
 }

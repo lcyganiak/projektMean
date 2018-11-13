@@ -1,10 +1,8 @@
 import mongoose from 'mongoose';
 
-
 const Schema = mongoose.Schema;
 
 let Issue = new Schema({
-
   title: {
     type: String
   },
@@ -29,18 +27,14 @@ let Issue = new Schema({
     type: String
   },
   access: {
-    type: String
+    type: Boolean
   },
   // image: {
   //   type: String
   // },
-imagePath: {
-  type: String
-
-}
-
-
-
+  imagePath: {
+    type: String
+  }
 });
 
 export default mongoose.model('Issue', Issue);

@@ -12,7 +12,7 @@ import { imgType } from './img-validatot';
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  styleUrls: ['./add.component.scss']
 })
 export class AddComponent implements OnInit {
   imagePreview: string;
@@ -29,7 +29,7 @@ export class AddComponent implements OnInit {
       email: ['', Validators.required],
       owner: ['', Validators.required],
       access: ['', Validators.required],
-      image: '',  asyncValidators: [imgType],
+      image: '', asyncValidators: [imgType],
       imagePath: ''
 
     });

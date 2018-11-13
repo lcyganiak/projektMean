@@ -8,10 +8,8 @@ import { AppComponent } from './app.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { HttpClientModule} from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HomeComponent } from './components/home/home.component';
 import { ListComponent } from './components/list/list.component';
 import { AddComponent } from './components/add/add.component';
-import { DeleteComponent } from './components/delete/delete.component';
 import { EditComponent } from './components/edit/edit.component';
 import { NotfComponent } from './components/notf/notf.component';
 import { AppRoutingModule } from './service/app.router.modules';
@@ -25,17 +23,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     ListComponent,
     AddComponent,
-    DeleteComponent,
     EditComponent,
     NotfComponent,
     DetalComponent,
     SortNamePipe,
     FilterPipe,
     TextTransformPipe,
-
   ],
   imports: [
     BrowserModule,

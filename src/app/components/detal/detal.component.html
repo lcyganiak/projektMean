@@ -2,48 +2,55 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 col-lg-5 img-foto">
-        <img [src]="book.imagePath" alt="">
-
+        <img [src]="book.imagePath" alt="" />
       </div>
       <div class="col-sm-8 col-lg-7 content-book">
         <div class="container-fluid">
           <div class="row">
             <div class="col-sm-12">
-              <h3 class="h3">Tytuł ksiązki: <p id="titleDetal">{{book.title}}</p>
+              <h3 class="h3">
+                Tytuł ksiązki:
+                <p id="titleDetal">{{ book.title }}</p>
               </h3>
-              <h4 class="h4">Autor: <p id="authorDetal">{{book.author}}</p>
+              <h4 class="h4">
+                Autor:
+                <p id="authorDetal">{{ book.author }}</p>
               </h4>
             </div>
             <div class="container-fluid">
               <div class="row">
                 <div class="col-sm-12">
-                  <h5 class="h5">Opis </h5>
+                  <h5 class="h5">Opis</h5>
                   <span class="descDetal">{{ book.description }}</span>
-
                 </div>
-
-
+              </div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-6">
+                    <button
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="editIssue(book._id)"
+                    >
+                      edytuj
+                    </button>
+                  </div>
+                  <div class="col-lg-6 col-sm-6">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="deleteIssues(book._id)"
+                      routerLink="/list"
+                    >
+                      skasuj
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
-
-
     </div>
-
   </div>
-  <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-6 col-sm-12">
-          <button type="button" class="btn btn-primary" (click)="editIssue(book._id)"> edytuj </button>
-        </div>
-        <div class="col-lg-6 col-sm-12">
-          <button type="button" class="btn btn-danger" (click)="deleteIssues(book._id)" routerLink="/list">skasuj
-          </button>
-        </div>
-      </div>
-    </div>
-
 </div>

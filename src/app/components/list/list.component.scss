@@ -136,10 +136,13 @@
     background: transparent;
 
   }
-.panelListBook {
-  background-color:wheat;
-}
+
 mat-paginator {
   margin: 1rem;
+}
+mat-expansion-panel {
+  width: 90%;
+  margin: 0 auto;
+  min-height: auto;
 }
  }

@@ -1,0 +1,17 @@
+.editForm {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.field-fule-width {
+  display: inline;
+}
+input[type='file'] {
+  /* visibility: hidden; */
+  display: none;
+}
+.image-preview {
+  height: 60%;
+  width: auto;
+  text-align: center;
+}

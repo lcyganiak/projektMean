@@ -6,11 +6,10 @@ import { Issue } from '../../issue.model';
 import { MatSnackBar } from '@angular/material';
 import { imgType } from '../add/img-validatot';
 
-
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
-  styleUrls: ['./edit.component.css']
+  styleUrls: ['./edit.component.scss']
 })
 export class EditComponent implements OnInit {
   id: String;
@@ -18,16 +17,20 @@ export class EditComponent implements OnInit {
   updateForm: FormGroup;
   imagePreview: string;
   totalBook = 10;
-   bookPerPage = 5;
-   currentPage = 1;
-   pageSizeOptions = [];
+  bookPerPage = 5;
+  currentPage = 1;
+  pageSizeOptions = [];
 
-
-  constructor(private issueService: IssueService, private router: Router,
-     private route: ActivatedRoute, private fb: FormBuilder, private snackBar: MatSnackBar) {
+  constructor(
+    private issueService: IssueService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {
     this.createForm();
-   }
-   createForm() {
+  }
+  createForm() {
     this.updateForm = this.fb.group({
       title: '',
       author: '',
@@ -37,22 +40,23 @@ export class EditComponent implements OnInit {
       email: '',
       owner: '',
       access: '',
-      image: '', asyncValidators: [imgType],
+      image: '',
+      asyncValidators: [imgType],
       imagePath: ''
     });
-   }
-   onImagePiked(event: Event) {
+  }
+  onImagePiked(event: Event) {
     const file = (event.target as HTMLInputElement).files[0];
-    this.updateForm.patchValue({image: file});
-   this.updateForm.get('image').updateValueAndValidity();
-   const reader = new FileReader();
-   reader.onload = () => {
-
+    this.updateForm.patchValue({ image: file });
+    this.updateForm.get('image').updateValueAndValidity();
+    const reader = new FileReader();
+    reader.onload = () => {
       this.imagePreview = <string>reader.result;
-   };
+      console.log(this.imagePreview);
+    };
 
-   reader.readAsDataURL(file);
-      }
+    reader.readAsDataURL(file);
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -72,20 +76,43 @@ export class EditComponent implements OnInit {
       });
     });
   }
-  updateIssue(title, author, category, heroes, description, email,  owner, access) {
-      // tslint:disable-next-line:max-line-length
-      this.issueService.updateIssues(this.id, title, author, category, heroes, description, owner, email, access, this.updateForm.value.image).subscribe(() => {
-          this.snackBar.open('Book is update', 'ok', {
-              duration: 5000
-          });
+  updateIssue(
+    title,
+    author,
+    category,
+    heroes,
+    description,
+    email,
+    owner,
+    access
+  ) {
+    // tslint:disable-next-line:max-line-length
+    this.issueService
+      .updateIssues(
+        this.id,
+        title,
+        author,
+        category,
+        heroes,
+        description,
+        owner,
+        email,
+        access,
+        this.updateForm.value.image
+      )
+      .subscribe(() => {
+        this.snackBar.open('Book is update', 'ok', {
+          duration: 5000
+        });
       });
   }
   fetchIssues() {
-    this.issueService.getIssues(this.bookPerPage, this.currentPage).subscribe((data: Issue[]) => {
-  this.issue = data;
+    this.issueService
+      .getIssues(this.bookPerPage, this.currentPage)
+      .subscribe((data: Issue[]) => {
+        this.issue = data;
 
-   return this.issue;
-     });
-   }
+        return this.issue;
+      });
+  }
 }
-

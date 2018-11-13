@@ -49,16 +49,17 @@
             [disabled]="createForm.pristine || createForm.invalid" mat-raised-button>Dodaj</button>
 
         </form>
+        <div class="col-sm-12 col-md-4 border">
+            <p>Zdjęcie twojej Ksiązki </p>
+                    <img class="image-preview" *ngIf="imagePreview !== '' && imagePreview && createForm.get('image').valid" [src]="imagePreview"
+                      [alt]="createForm.value.title">
+
+                </div>
       </mat-card>
     </div>
 
 
-    <div class="col-sm-12 col-md-4 border">
-<p>Zdjęcie twojej Ksiązki </p>
-        <img class="image-preview" *ngIf="imagePreview !== '' && imagePreview && createForm.get('image').valid" [src]="imagePreview"
-          [alt]="createForm.value.title">
 
-    </div>
   </div>
 </div>
 

@@ -5,14 +5,10 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Issue } from '../../issue.model';
 import { MatSnackBar } from '@angular/material';
 
-
-
-
-
 @Component({
   selector: 'app-detal',
   templateUrl: './detal.component.html',
-  styleUrls: ['./detal.component.css']
+  styleUrls: ['./detal.component.scss']
 })
 export class DetalComponent implements OnInit {
   book: any = {};
@@ -24,41 +20,46 @@ export class DetalComponent implements OnInit {
   currentPage = 1;
   pageSizeOptions = [];
 
-  constructor(private issueService: IssueService, private router: Router,
-    private route: ActivatedRoute, private fb: FormBuilder, private snackBar: MatSnackBar) {
-      this.detalsForm();
-     }
+  constructor(
+    private issueService: IssueService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
+  ) {
+    this.detalsForm();
+  }
 
-    detalsForm() {
-      this.detalForm = this.fb.group({
-        title: '',
-        author: '',
-        category: '',
-        heroes: '',
-        description: '',
-        email: '',
-        owner: '',
-        access: '',
-        image: '',
-        imagePath: ''
+  detalsForm() {
+    this.detalForm = this.fb.group({
+      title: '',
+      author: '',
+      category: '',
+      heroes: '',
+      description: '',
+      email: '',
+      owner: '',
+      access: '',
+      image: '',
+      imagePath: ''
+    });
+  }
+  editIssue(id) {
+    this.router.navigate([`/edit/${id}`]);
+  }
+  deleteIssues(id) {
+    this.issueService.deleteIssues(id).subscribe(() => {
+      this.fetchIssues();
+    });
+  }
+  fetchIssues() {
+    this.issueService
+      .getIssues(this.bookPerPage, this.currentPage)
+      .subscribe((data: Issue[]) => {
+        this.issues = data;
+        return this.issues;
       });
-     }
-     editIssue(id) {
-
-   this.router.navigate([`/edit/${id}`]);
-    // console.log(this.editIssue);
- }
- deleteIssues(id) {
-  this.issueService.deleteIssues(id).subscribe(() => {
-    this.fetchIssues();
-  });
-}
-fetchIssues() {
-  this.issueService.getIssues(this.bookPerPage, this.currentPage).subscribe((data: Issue[]) => {
-this.issues = data;
- return this.issues;
-  });
-}
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -78,5 +79,4 @@ this.issues = data;
       });
     });
   }
-
- }
+}
