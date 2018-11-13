@@ -71,44 +71,6 @@ export class IssueService {
     issue.append('access', access);
     issue.append('image', image);
     return this.http.post(`${this.uri}/update/${id}`, issue);
-
-    // if (typeof image === 'object') {
-    //   const issue = new FormData();
-    //   issue.append('title', title);
-    //   issue.append('author', author);
-    //   issue.append('category', category);
-    //   issue.append('heroes', heroes);
-    //   issue.append('description', description);
-    //   issue.append('owner', owner);
-    //   issue.append('email', email);
-    //   issue.append('access', access);
-    //  issue.append('image', image);
-    //     return this.http.post(`${this.uri}/update/${id}`, issue);
-    // } else {
-    //   const issue = new FormData();
-    //   issue.append('title', title);
-    //   issue.append('author', author);
-    //   issue.append('category', category);
-    //   issue.append('heroes', heroes);
-    //   issue.append('description', description);
-    //   issue.append('owner', owner);
-    //   issue.append('email', email);
-    //   issue.append('access', access);
-    //   issue.append('image', image);
-    //     return this.http.post(`${this.uri}/update/${id}`, issue);
-    // }
-
-    // const issue = new FormData();
-    // issue.append('title', title);
-    // issue.append('author', author);
-    // issue.append('category', category);
-    // issue.append('heroes', heroes);
-    // issue.append('description', description);
-    // issue.append('owner', owner);
-    // issue.append('email', email);
-    // issue.append('access', access);
-    // issue.append('image', image);
-    //   return this.http.post(`${this.uri}/update/${id}`, issue);
   }
 
   deleteIssues(id) {
