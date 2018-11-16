@@ -1,47 +1,59 @@
-
-
-
 /* Extra small devices (portrait phones, less than 576px) */
-@media (max-width: 575.98px) {  }
+@media (max-width: 575.98px) {
+  p#authorDetal {
+    word-wrap: break-word;
+  }
+}
 
- /* Small devices (landscape phones, 576px and up) */
-@media (min-width: 576px) and (max-width: 767.98px) {  }
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  p#authorDetal {
+    word-wrap: break-word;
+  }
+}
 
 /* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) and (max-width: 991.98px) {  }
+@media (min-width: 768px) and (max-width: 991.98px) {
+  p#authorDetal {
+    word-wrap: break-word;
+  }
+}
 
 /* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) and (max-width: 1199.98px) {  }
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  p#authorDetal {
+    word-wrap: break-word;
+  }
+}
 
- /* Extra large devices (large desktops, 1200px and up) */
+/* Extra large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
-.createForm {
-  width: 100%;
-  margin: 0 auto;
+  .createForm {
+    width: 100%;
+    margin: 0 auto;
+  }
+  p#authorDetal {
+    word-wrap: break-word;
+  }
 
+  .field-fule-width {
+    display: inline;
+  }
+  input[type='file'] {
+    visibility: hidden;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
 }
-
-.field-fule-width {
-  display: inline;
-
-}
-input[type="file"] {
-  visibility: hidden;
-}
-
-.image-preview {
-
-
-  text-align: center;
-}
-
-.image-preview img {
-  height: 60%;
-  width: auto;
-  text-align: center;
-}
-.border {
-  border: 4px solid black;
-  text-align: center;
-}
- }

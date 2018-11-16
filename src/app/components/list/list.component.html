@@ -1,15 +1,26 @@
-<mat-expansion-panel *ngFor="let book of issues" class="panelListBook">
+<mat-expansion-panel
+  *ngFor="let book of (issues | sortName)"
+  class="panelListBook"
+>
   <mat-expansion-panel-header>
     <span class="titleList">Tytuł:</span>
-    <p id="listTitle">{{ book.title | textTransform }}</p>
+    <p id="listTitle">{{ book.title | upperCase }}</p>
   </mat-expansion-panel-header>
 
-  <div class="container-fluid main-book-list">
+  <div class="container-fluid main-book-list ">
     <div class="row">
       <div class="col-sm-12 col-lg-4 text-center">
         <h4 class="h4">
           Autor: <br />
           <p id="listTitle">{{ book.author }}</p>
+          <p id="listDescrip">{{ book.description | descriptionList }}</p>
+          <button
+            type="button"
+            class="btn  main-button"
+            (click)="detalsForm(book._id)"
+          >
+            więcej
+          </button>
         </h4>
       </div>
       <div class="col-sm-12 col-lg-4 text-center imgListBox">
@@ -20,13 +31,10 @@
         />
       </div>
       <div class="col-sm-12 col-lg-4 text-center">
-        <button
-          type="button"
-          class="btn  main-button"
-          (click)="detalsForm(book._id)"
-        >
-          więcej
-        </button>
+        <h4 class="h4">
+          Bohaterowie
+          <p id="listHeros">{{ book.heroes }}</p>
+        </h4>
       </div>
     </div>
   </div>

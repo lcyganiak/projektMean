@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import { Array } from 'core-js';
 
 const Schema = mongoose.Schema;
 
@@ -24,7 +25,7 @@ let Issue = new Schema({
     type: String
   },
   email: {
-    type: String
+    type: []
   },
   access: {
     type: Boolean

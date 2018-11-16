@@ -3,6 +3,7 @@ import { IssueService } from 'src/app/service/issue.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { imgType } from './img-validatot';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-add',
@@ -16,7 +17,8 @@ export class AddComponent implements OnInit {
   constructor(
     private issueService: IssueService,
     private fb: FormBuilder,
-    private router: Router
+    private router: Router,
+    public authService: AuthService
   ) {
     this.createForm = this.fb.group({
       title: ['', Validators.required],
@@ -24,7 +26,7 @@ export class AddComponent implements OnInit {
       category: ['', Validators.required],
       heroes: ['', Validators.required],
       description: ['', Validators.required],
-      email: ['', Validators.required],
+      email: '',
       owner: ['', Validators.required],
       access: ['', Validators.required],
       image: '',
@@ -56,7 +58,6 @@ export class AddComponent implements OnInit {
     access,
     imagePath
   ) {
-    // tslint:disable-next-line:max-line-length
     this.issueService
       .addIssues(
         title,

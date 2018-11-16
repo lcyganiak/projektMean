@@ -4,6 +4,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Issue } from '../../issue.model';
 import { MatSnackBar } from '@angular/material';
+import { AuthService } from 'src/app/service/auth.service';
+import { ActivButtonService } from 'src/app/service/ActivButtonService';
 
 @Component({
   selector: 'app-detal',
@@ -25,7 +27,9 @@ export class DetalComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public authService: AuthService,
+    public activButtonService: ActivButtonService
   ) {
     this.detalsForm();
   }

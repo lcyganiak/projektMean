@@ -1,11 +1,11 @@
 <div class="center">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12 col-lg-5 img-foto">
         <img [src]="book.imagePath" alt="" />
       </div>
-      <div class="col-sm-8 col-lg-7 content-book">
-        <div class="container-fluid">
+      <div class="col-sm-12 col-lg-7 content-book">
+        <div class="container-fluid center">
           <div class="row">
             <div class="col-sm-12">
               <h3 class="h3">
@@ -19,7 +19,7 @@
             </div>
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-12">
+                <div class="col-sm-12 description">
                   <h5 class="h5">Opis</h5>
                   <span class="descDetal">{{ book.description }}</span>
                 </div>
@@ -28,6 +28,7 @@
                 <div class="row">
                   <div class="col-lg-6 col-sm-6">
                     <button
+                      *ngIf="authService.user"
                       type="button"
                       class="btn btn-primary"
                       (click)="editIssue(book._id)"
@@ -37,6 +38,7 @@
                   </div>
                   <div class="col-lg-6 col-sm-6">
                     <button
+                      *ngIf="authService.user"
                       type="button"
                       class="btn btn-danger"
                       (click)="deleteIssues(book._id)"

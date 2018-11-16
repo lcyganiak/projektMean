@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { IssueService } from 'src/app/service/issue.service';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Issue } from '../../issue.model';
 import { MatSnackBar } from '@angular/material';
 import { imgType } from '../add/img-validatot';
+import { AuthService } from 'src/app/service/auth.service';
 
 @Component({
   selector: 'app-edit',
@@ -26,7 +27,8 @@ export class EditComponent implements OnInit {
     private router: Router,
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public authService: AuthService
   ) {
     this.createForm();
   }
@@ -68,7 +70,7 @@ export class EditComponent implements OnInit {
         this.updateForm.get('category').setValue(this.issue.category);
         this.updateForm.get('heroes').setValue(this.issue.heroes);
         this.updateForm.get('description').setValue(this.issue.description);
-        this.updateForm.get('email').setValue(this.issue.email);
+        this.updateForm.get('email').setValue(this.authService.user.email);
         this.updateForm.get('owner').setValue(this.issue.owner);
         this.updateForm.get('access').setValue(this.issue.access);
         this.updateForm.get('image').setValue(this.issue.image);
@@ -115,4 +117,7 @@ export class EditComponent implements OnInit {
         return this.issue;
       });
   }
+  // login(formData: NgForm) {
+  //   this.authService.login(formData.value.email, formData.value.password);
+  // }
 }
