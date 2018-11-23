@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { AuthService } from 'src/app/service/auth.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -8,13 +9,23 @@ import { AuthService } from 'src/app/service/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  constructor(private authService: AuthService) {}
+  info: string;
+  constructor(
+    private authService: AuthService,
+    private route: ActivatedRoute
+  ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.route.params.subscribe(params => {
+      if (params['name']) {
+        this.info = 'Zaloguj się, abyś mógł dodac ksiązke ' + params['name'];
+      } else {
+        this.info = null;
+      }
+    });
+  }
+
   login(formData: NgForm) {
     this.authService.login(formData.value.email, formData.value.password);
   }
-  // signup(formData: NgForm) {
-  //   this.authService.singup(formData.value.email, formData.value.password);
-  // }
 }

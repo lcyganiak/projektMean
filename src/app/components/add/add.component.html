@@ -37,17 +37,52 @@
               #heroes
             />
           </mat-form-field>
-          <mat-form-field class="field-fule-width ">
-            <textarea
-              matInput
-              placeholder="Opis-miniumum 50 znaków"
-              formControlName="description"
-              #description
-              minlength="50"
-              title="Opis ksiązki powinieni zawierać miniumum 50 znaków"
-            >
-            </textarea>
-          </mat-form-field>
+          <div
+            class="container buttonEdit"
+            *appContenteditable="
+              let clickButton = controllerButton;
+              let discryptionBook
+            "
+          >
+            <mat-form-field class="field-fule-width ">
+              <input
+                matInput
+                placeholder="Opis"
+                formControlName="description"
+                #description
+                id="description"
+                [ngModel]="discryptionBook"
+              />
+            </mat-form-field>
+
+            <ul style="list-style-type: none">
+              <button
+                class="btn btn-primary bold "
+                (click)="clickButton.bold()"
+              >
+                <i class="fas fa-bold"></i>
+              </button>
+              <button
+                class="btn btn-primary italic"
+                (click)="clickButton.italic()"
+              >
+                <i class="fas fa-italic"></i>
+              </button>
+              <button class="btn btn-primary" (click)="clickButton.underline()">
+                <i class="fas fa-underline"></i>
+              </button>
+              <button class="btn btn-primary" (click)="clickButton.sad()">
+                <i class="far fa-frown-open"></i>
+              </button>
+              <button class="btn btn-primary" (click)="clickButton.smail()">
+                <i class="far fa-smile-beam"></i>
+              </button>
+            </ul>
+
+            <div contenteditable="true" class="contenteditable">
+              Opis wwojej ksiązki!!!!
+            </div>
+          </div>
 
           <mat-form-field class="field-fule-width ">
             <input
@@ -92,7 +127,7 @@
                 author.value,
                 category.value,
                 heroes.value,
-                description.value,
+                description,
                 email.value,
                 owner.value,
                 access.value,

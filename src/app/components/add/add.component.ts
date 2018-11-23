@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnChanges } from '@angular/core';
 import { IssueService } from 'src/app/service/issue.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
@@ -13,6 +13,8 @@ import { AuthService } from 'src/app/service/auth.service';
 export class AddComponent implements OnInit {
   imagePreview: string;
   createForm: FormGroup;
+  descriptionValue: any;
+  binding: string;
 
   constructor(
     private issueService: IssueService,
@@ -25,7 +27,7 @@ export class AddComponent implements OnInit {
       author: ['', Validators.required],
       category: ['', Validators.required],
       heroes: ['', Validators.required],
-      description: ['', Validators.required],
+      description: '',
       email: '',
       owner: ['', Validators.required],
       access: ['', Validators.required],
@@ -39,8 +41,8 @@ export class AddComponent implements OnInit {
     this.createForm.patchValue({ image: file });
     this.createForm.get('image').updateValueAndValidity();
     const reader = new FileReader();
-    //   console.log(file);
-    //  console.log(this.createForm);
+    // console.log(file);
+    // console.log(this.createForm);
     reader.onload = () => {
       this.imagePreview = <string>reader.result;
     };
@@ -64,7 +66,7 @@ export class AddComponent implements OnInit {
         author,
         category,
         heroes,
-        description,
+        this.createForm.value.description,
         owner,
         email,
         access,
@@ -75,6 +77,5 @@ export class AddComponent implements OnInit {
         this.router.navigate(['/list']);
       });
   }
-
   ngOnInit() {}
 }

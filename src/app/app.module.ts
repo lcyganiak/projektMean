@@ -28,7 +28,6 @@ import { IssueService } from './service/issue.service';
 import { DetalComponent } from './components/detal/detal.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { DescriptionListPipe } from './pipe/description/description-list.pipe';
-import { SortNamePipe } from './pipe/sortTitle/sort-name.pipe';
 import { UpperCasePipe } from './pipe/UpperCase/upper-case.pipe';
 import { LoginComponent } from './components/login/login/login.component';
 import { AngularFireModule } from '@angular/fire';
@@ -36,6 +35,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AuthService } from './service/auth.service';
 import { SingupComponent } from './components/login/singup/singup.component';
 import { ActivButtonService } from './service/ActivButtonService';
+import { ContenteditableDirective } from './directiv/userChangeStyle/contenteditable.directive';
 
 const config = {
   apiKey: 'AIzaSyBrjJKnRsQolyHL-6-yrqVzBs101gO1lYk',
@@ -55,10 +55,10 @@ const config = {
     NotfComponent,
     DetalComponent,
     DescriptionListPipe,
-    SortNamePipe,
     UpperCasePipe,
     LoginComponent,
-    SingupComponent
+    SingupComponent,
+    ContenteditableDirective
   ],
   imports: [
     BrowserModule,

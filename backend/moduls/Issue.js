@@ -25,7 +25,7 @@ let Issue = new Schema({
     type: String
   },
   email: {
-    type: []
+    type: String
   },
   access: {
     type: Boolean

@@ -11,7 +11,7 @@ import { ActivButtonService } from './ActivButtonService';
 
 const appRoutes: Routes = [
   { path: '', redirectTo: '/list', pathMatch: 'full' },
-  { path: 'add', component: AddComponent },
+  { path: 'add', component: AddComponent, canActivate: [ActivButtonService] },
   { path: 'edit/:id', component: EditComponent },
   { path: 'list', component: ListComponent },
   { path: 'detal/:id', component: DetalComponent },
