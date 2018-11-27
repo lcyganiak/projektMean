@@ -15,3 +15,19 @@ input[type='file'] {
   width: auto;
   text-align: center;
 }
+
+.contenteditableSec {
+  box-shadow: 5px 5px 10px;
+  width: auto;
+  min-height: 16rem;
+  margin-bottom: 4%;
+  .contenteditable {
+    border-top: 1px solid;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}
+.descriptionClass {
+  display: none;
+}

@@ -36,6 +36,7 @@ import { AuthService } from './service/auth.service';
 import { SingupComponent } from './components/login/singup/singup.component';
 import { ActivButtonService } from './service/ActivButtonService';
 import { ContenteditableDirective } from './directiv/userChangeStyle/contenteditable.directive';
+import { EmailDirective } from './directiv/emailDirectiv/email.directive';
 
 const config = {
   apiKey: 'AIzaSyBrjJKnRsQolyHL-6-yrqVzBs101gO1lYk',
@@ -58,7 +59,8 @@ const config = {
     UpperCasePipe,
     LoginComponent,
     SingupComponent,
-    ContenteditableDirective
+    ContenteditableDirective,
+    EmailDirective
   ],
   imports: [
     BrowserModule,

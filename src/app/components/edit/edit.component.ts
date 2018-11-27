@@ -40,6 +40,7 @@ export class EditComponent implements OnInit {
       heroes: '',
       description: '',
       email: '',
+      emailChekbox: '',
       owner: '',
       access: '',
       image: '',
@@ -54,7 +55,7 @@ export class EditComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = <string>reader.result;
-      console.log(this.imagePreview);
+      // console.log(this.imagePreview);
     };
 
     reader.readAsDataURL(file);
@@ -71,6 +72,7 @@ export class EditComponent implements OnInit {
         this.updateForm.get('heroes').setValue(this.issue.heroes);
         this.updateForm.get('description').setValue(this.issue.description);
         this.updateForm.get('email').setValue(this.authService.user.email);
+        this.updateForm.get('emailChekbox').setValue(this.issue.emailChekbox);
         this.updateForm.get('owner').setValue(this.issue.owner);
         this.updateForm.get('access').setValue(this.issue.access);
         this.updateForm.get('image').setValue(this.issue.image);
@@ -85,6 +87,7 @@ export class EditComponent implements OnInit {
     heroes,
     description,
     email,
+    emailChekbox,
     owner,
     access
   ) {
@@ -96,8 +99,9 @@ export class EditComponent implements OnInit {
         author,
         category,
         heroes,
-        description,
+        this.updateForm.value.description,
         owner,
+        emailChekbox,
         email,
         access,
         this.updateForm.value.image

@@ -29,9 +29,10 @@ export class IssueService {
     description,
     owner,
     email,
+    emailChekbox,
     access,
     image: File,
-    imagePath
+    imagePath = ''
   ) {
     const issue = new FormData();
     issue.append('title', title);
@@ -41,6 +42,7 @@ export class IssueService {
     issue.append('description', description);
     issue.append('owner', owner);
     issue.append('email', email);
+    issue.append('emailChekbox', emailChekbox);
     issue.append('access', access);
     issue.append('image', image);
     issue.append('imagePath', imagePath);
@@ -56,6 +58,7 @@ export class IssueService {
     description,
     owner,
     email,
+    emailChekbox,
     access,
     image: File
     // imagePath
@@ -68,6 +71,7 @@ export class IssueService {
     issue.append('description', description);
     issue.append('owner', owner);
     issue.append('email', email);
+    issue.append('emailChekbox', emailChekbox);
     issue.append('access', access);
     issue.append('image', image);
     return this.http.post(`${this.uri}/update/${id}`, issue);

@@ -34,7 +34,8 @@ export class ContenteditableDirective implements AfterViewInit {
         italic: () => this.italic(),
         underline: () => this.underline(),
         smail: () => this.smail(),
-        sad: () => this.sad()
+        sad: () => this.sad(),
+        delete: () => this.delete()
       },
       $implicit: this.divContent
     };
@@ -69,6 +70,9 @@ export class ContenteditableDirective implements AfterViewInit {
       'http://localhost:4000/images/emotic/sadFace.ico'
     );
   }
+  delete() {
+    document.execCommand('delete', false, null);
+  }
 
   ngAfterViewInit() {
     const then = this;
@@ -82,6 +86,7 @@ export class ContenteditableDirective implements AfterViewInit {
       .querySelector('.contenteditable')
       .addEventListener('input', function() {
         then.divContent = this.innerHTML;
+
         then.button.$implicit = this.innerHTML;
       });
   }

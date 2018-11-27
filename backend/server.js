@@ -76,7 +76,9 @@ router
     issue.description = req.body.description;
     issue.owner = req.body.owner;
     issue.email = req.body.email;
+    issue.emailChekbox = req.body.emailChekbox;
     issue.access = req.body.access;
+
     // issue.image = req.body.image;
     issue.imagePath = url + '/images/' + req.file.filename;
     issue
@@ -104,6 +106,7 @@ router
           issue.description = req.body.description;
           issue.owner = req.body.owner;
           issue.email = req.body.email;
+          issue.emailChekbox = req.body.emailChekbox;
           issue.access = req.body.access;
           issue.image = req.body.image;
           issue.imagePath = url + '/images/' + req.file.filename;
@@ -115,6 +118,7 @@ router
           issue.description = req.body.description;
           issue.owner = req.body.owner;
           issue.email = req.body.email;
+          issue.emailChekbox = req.body.emailChekbox;
           issue.access = req.body.access;
           issue.imagePath = issue.imagePath;
         }

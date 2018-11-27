@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid main-container-fluid">
   <section><h2 class="h2">Nowa Ksiązka</h2></section>
   <div class="row">
     <div class="col-sm-12 col-md-8">
@@ -44,7 +44,7 @@
               let discryptionBook
             "
           >
-            <mat-form-field class="field-fule-width ">
+            <mat-form-field class="field-fule-width descriptionClass">
               <input
                 matInput
                 placeholder="Opis"
@@ -54,33 +54,40 @@
                 [ngModel]="discryptionBook"
               />
             </mat-form-field>
+            <div class="contenteditableSec">
+              <ul style="list-style-type: none">
+                <button
+                  class="btn btn-primary bold "
+                  (click)="clickButton.bold()"
+                >
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button
+                  class="btn btn-primary italic"
+                  (click)="clickButton.italic()"
+                >
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button
+                  class="btn btn-primary"
+                  (click)="clickButton.underline()"
+                >
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.sad()">
+                  <i class="far fa-frown-open"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.smail()">
+                  <i class="far fa-smile-beam"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.delete()">
+                  <i class="fas fa-backspace"></i>
+                </button>
+              </ul>
 
-            <ul style="list-style-type: none">
-              <button
-                class="btn btn-primary bold "
-                (click)="clickButton.bold()"
-              >
-                <i class="fas fa-bold"></i>
-              </button>
-              <button
-                class="btn btn-primary italic"
-                (click)="clickButton.italic()"
-              >
-                <i class="fas fa-italic"></i>
-              </button>
-              <button class="btn btn-primary" (click)="clickButton.underline()">
-                <i class="fas fa-underline"></i>
-              </button>
-              <button class="btn btn-primary" (click)="clickButton.sad()">
-                <i class="far fa-frown-open"></i>
-              </button>
-              <button class="btn btn-primary" (click)="clickButton.smail()">
-                <i class="far fa-smile-beam"></i>
-              </button>
-            </ul>
-
-            <div contenteditable="true" class="contenteditable">
-              Opis wwojej ksiązki!!!!
+              <div contenteditable="true" class="contenteditable">
+                Opis ksiązki
+              </div>
             </div>
           </div>
 
@@ -93,6 +100,16 @@
               #email
               value="{{authService.user.email}}"
             />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <mat-select
+              placeholder="Zgodan na powiadomienia email"
+              formControlName="emailChekbox"
+              #emailChekbox
+            >
+              <mat-option value="true">Tak</mat-option>
+              <mat-option value="false">Nie</mat-option>
+            </mat-select>
           </mat-form-field>
           <mat-form-field class="field-fule-width ">
             <input
@@ -120,6 +137,7 @@
           <br /><br />
 
           <button
+            EmailDirective
             type="submit"
             (click)="
               addIssue(
@@ -129,6 +147,7 @@
                 heroes.value,
                 description,
                 email.value,
+                emailChekbox.value,
                 owner.value,
                 access.value,
                 imagePreview

@@ -29,6 +29,7 @@ export class AddComponent implements OnInit {
       heroes: ['', Validators.required],
       description: '',
       email: '',
+      emailChekbox: '',
       owner: ['', Validators.required],
       access: ['', Validators.required],
       image: '',
@@ -56,6 +57,7 @@ export class AddComponent implements OnInit {
     heroes,
     description,
     email,
+    emailChekbox,
     owner,
     access,
     imagePath
@@ -69,6 +71,7 @@ export class AddComponent implements OnInit {
         this.createForm.value.description,
         owner,
         email,
+        emailChekbox,
         access,
         this.createForm.value.image,
         this.createForm.value.imagePath

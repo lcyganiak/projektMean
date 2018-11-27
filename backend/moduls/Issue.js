@@ -27,6 +27,9 @@ let Issue = new Schema({
   email: {
     type: String
   },
+  emailChekbox: {
+    type: Boolean
+  },
   access: {
     type: Boolean
   },
