@@ -1,0 +1,248 @@
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+  .main-container-fluid {
+    .createForm {
+      width: 100%;
+      margin: 0 auto;
+      p#authorDetal {
+        word-wrap: break-word;
+      }
+      .contenteditableSec {
+        width: auto;
+        min-height: 16rem;
+        margin-bottom: 4%;
+        .contenteditable {
+          border: 1px solid;
+          min-height: 50px;
+        }
+        ul {
+          padding: 0;
+          display: grid;
+        }
+      }
+      input[type='file'] {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .field-fule-width {
+    display: inline;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+  .descriptionClass {
+    display: none;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+  .main-container-fluid {
+    .createForm {
+      width: 100%;
+      margin: 0 auto;
+      p#authorDetal {
+        word-wrap: break-word;
+      }
+      .contenteditableSec {
+        box-shadow: 5px 5px 10px;
+        width: auto;
+        min-height: 16rem;
+        margin-bottom: 4%;
+        .contenteditable {
+          border-top: 1px solid;
+        }
+      }
+      input[type='file'] {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .field-fule-width {
+    display: inline;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+  .descriptionClass {
+    display: none;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .main-container-fluid {
+    .createForm {
+      width: 100%;
+      margin: 0 auto;
+      p#authorDetal {
+        word-wrap: break-word;
+      }
+      .contenteditableSec {
+        box-shadow: 5px 5px 10px;
+        width: auto;
+        min-height: 16rem;
+        margin-bottom: 4%;
+        .contenteditable {
+          border-top: 1px solid;
+        }
+      }
+      input[type='file'] {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .field-fule-width {
+    display: inline;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+  .descriptionClass {
+    display: none;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .main-container-fluid {
+    .createForm {
+      width: 100%;
+      margin: 0 auto;
+      p#authorDetal {
+        word-wrap: break-word;
+      }
+      .contenteditableSec {
+        box-shadow: 5px 5px 10px;
+        width: auto;
+        min-height: 16rem;
+        margin-bottom: 4%;
+        .contenteditable {
+          border-top: 1px solid;
+        }
+      }
+      input[type='file'] {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .field-fule-width {
+    display: inline;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+  .descriptionClass {
+    display: none;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .main-container-fluid {
+    .createForm {
+      width: 100%;
+      margin: 0 auto;
+      p#authorDetal {
+        word-wrap: break-word;
+      }
+      .contenteditableSec {
+        box-shadow: 5px 5px 10px;
+        width: auto;
+        min-height: 16rem;
+        margin-bottom: 4%;
+        .contenteditable {
+          border-top: 1px solid;
+        }
+      }
+      input[type='file'] {
+        visibility: hidden;
+      }
+    }
+  }
+
+  .field-fule-width {
+    display: inline;
+  }
+
+  .image-preview {
+    text-align: center;
+  }
+  .descriptionClass {
+    display: none;
+  }
+
+  .image-preview img {
+    height: 60%;
+    width: auto;
+    text-align: center;
+  }
+  .border {
+    border: 4px solid black;
+    text-align: center;
+  }
+  button.btn {
+    margin: 10px;
+  }
+}

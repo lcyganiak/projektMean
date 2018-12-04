@@ -1,64 +1,187 @@
-<div>
-  <br>
-  <section>
-    <h2>Edytowanie</h2>
-  </section>
-  <mat-divider></mat-divider>
-  <mat-card>
-    <form [formGroup]="updateForm" class="editForm">
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Tytuł" formControlName="title" #title>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Autor" formControlName="author" #author>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Karegoria" formControlName="category" #category>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Bohaterowie" formControlName="heroes" #heroes>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <textarea matInput placeholder="Opis" formControlName="description" #description></textarea>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="E-mail" formControlName="email" #email>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-        <input matInput placeholder="Właściciel" formControlName="owner" #owner>
-      </mat-form-field>
-      <mat-form-field class="field-fule-width ">
-          <mat-select placeholder="Dostep" formControlName="access" #access>
-            <mat-option value="true">Wypożycze</mat-option>
-            <mat-option value="false">Wypożyczona</mat-option>
-          </mat-select>
-        </mat-form-field>
-        <div>
-          <button mat-stroked-button type="button" (click)="fileGet.click()">Dodaj zdjęcie</button>
-          <input type="file" #fileGet (change)="onImagePiked($event)">
-        </div>
+<br />
+<section><h2>Edytowanie</h2></section>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12 col-lg-8">
+      <mat-divider></mat-divider>
+      <mat-card>
+        <form [formGroup]="updateForm" class="editForm">
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="title"
+              matInput
+              placeholder="Tytuł"
+              formControlName="title"
+              #title
+            />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="author"
+              matInput
+              placeholder="Autor"
+              formControlName="author"
+              #author
+            />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="category"
+              matInput
+              placeholder="Karegoria"
+              formControlName="category"
+              #category
+            />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="heroes"
+              matInput
+              placeholder="Bohaterowie"
+              formControlName="heroes"
+              #heroes
+            />
+          </mat-form-field>
+          <div
+            class="container buttonEdit"
+            *appContenteditable="
+              let clickButton = controllerButton;
+              let discryptionBook
+            "
+          >
+            <mat-form-field class="field-fule-width descriptionClass">
+              <input
+                matInput
+                placeholder="Opis"
+                formControlName="description"
+                #description
+                id="description"
+                [ngModel]="discryptionBook"
+              />
+            </mat-form-field>
+            <div class="contenteditableSec">
+              <h2 class="h2 text-center">Opis książki</h2>
+              <ul style="list-style-type: none">
+                <button
+                  class="btn btn-primary bold "
+                  (click)="clickButton.bold()"
+                >
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button
+                  class="btn btn-primary italic"
+                  (click)="clickButton.italic()"
+                >
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button
+                  class="btn btn-primary"
+                  (click)="clickButton.underline()"
+                >
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.sad()">
+                  <i class="far fa-frown-open"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.smail()">
+                  <i class="far fa-smile-beam"></i>
+                </button>
+                <button class="btn btn-primary" (click)="clickButton.delete()">
+                  <i class="fas fa-backspace"></i>
+                </button>
+              </ul>
 
-        <mat-divider></mat-divider>
-        <br><br>
+              <div
+                contenteditable="true"
+                class="contenteditable"
+                [innerHTML]="issue.description"
+              ></div>
+            </div>
+          </div>
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="email"
+              matInput
+              placeholder="E-mail"
+              formControlName="email"
+              #email
+              value="{{authService.user.email}}"
+            />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <mat-select
+              placeholder="Zgodan na powiadomienia email"
+              formControlName="emailChekbox"
+              #emailChekbox
+            >
+              <mat-option value="true">Tak</mat-option>
+              <mat-option value="false">Nie</mat-option>
+            </mat-select>
+          </mat-form-field>
 
-        <button type="submit"(click)="updateIssue(title.value, author.value, category.value, heroes.value,
-         description.value, email.value, owner.value, access.value, imagePreview)"
+          <mat-form-field class="field-fule-width ">
+            <input
+              id="owner"
+              matInput
+              placeholder="Właściciel"
+              formControlName="owner"
+              #owner
+            />
+          </mat-form-field>
+          <mat-form-field class="field-fule-width ">
+            <mat-select placeholder="Dostep" formControlName="access" #access>
+              <mat-option value="true">Wypożycze</mat-option>
+              <mat-option value="false">Wypożyczona</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <div>
+            <button mat-stroked-button type="button" (click)="fileGet.click()">
+              Dodaj zdjęcie
+            </button>
+            <input type="file" #fileGet (change)="onImagePiked($event)" />
+          </div>
 
-         [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button  routerLink="/list" >Zapisz</button>
+          <mat-divider></mat-divider>
+          <br /><br />
 
+          <button
+            appEmail
+            type="submit"
+            (click)="
+              updateIssue(
+                title.value,
+                author.value,
+                category.value,
+                heroes.value,
+                description,
+                email.value,
+                emailChekbox.value,
+                owner.value,
+                access.value,
+                imagePreview
+              )
+            "
+            [disabled]="updateForm.pristine || updateForm.invalid"
+            mat-raised-button
+            routerLink="/list"
+          >
+            Zapisz
+          </button>
+        </form>
+      </mat-card>
+    </div>
 
-
-
-    </form>
-  </mat-card>
-  <!-- <div>
-    <img  class="image-preview" *ngIf="imagePreview !== '' && imagePreview && updateForm.get('image').valid"
-    [src]="imagePreview" [alt]="updateForm.value.title">
-
-  </div> -->
+    <div class="col-sm-12 col-lg-4 text-center">
+      <div class="image-preview">
+        <p>Zdjęcie twojej ksiązki</p>
+        <img
+          *ngIf="imagePreview && updateForm.get('image').valid; else: oldImg"
+          [src]="imagePreview"
+          [alt]="updateForm.value.title"
+        />
+      </div>
+    </div>
+  </div>
 </div>
-<mat-form-field class="field-fule-width ">
-  <input matInput placeholder="Właściciel" formControlName="owner" #owner>
-
-</mat-form-field>
+<ng-template #oldImg> <img src="{{issue.imagePath}}" alt="" /> </ng-template>

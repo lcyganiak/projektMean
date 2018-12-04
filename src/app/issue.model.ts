@@ -9,5 +9,6 @@ export interface Issue {
   email: String;
   access: String;
   image: String;
+  imagePath: String;
 
 }

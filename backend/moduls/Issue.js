@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-
+import { Array } from 'core-js';
 
 const Schema = mongoose.Schema;
 
@@ -27,19 +27,18 @@ let Issue = new Schema({
   email: {
     type: String
   },
+  emailChekbox: {
+    type: Boolean
+  },
   access: {
     type: Boolean
   },
-  image: {
+  // image: {
+  //   type: String
+  // },
+  imagePath: {
     type: String
-  },
-imagePath: {
-  type: String
-
-}
-
-
-
+  }
 });
 
 export default mongoose.model('Issue', Issue);

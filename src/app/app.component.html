@@ -1,11 +1,20 @@
-
-
 <nav class="navbar navbar-dark bg-primary">
-    <a class="navbar-brand" routerLink="/home">Home</a>
-    <a class="navbar-brand" routerLink="/list">Lista</a>
-    <a class="navbar-brand"routerLink="/add">Dodaj książkę</a>
+  <a class="navbar-brand" routerLink="/list">Lista</a>
+  <a class="navbar-brand" routerLink="/add">Dodaj książkę</a>
+  <a *ngIf="!authService.user" class="navbar-brand" routerLink="/login"
+    >Logowanie</a
+  >
+  <a
+    *ngIf="authService.user"
+    class="navbar-brand"
+    routerLink="/list"
+    (click)="logout()"
+    >Wyloguj</a
+  >
+  <a *ngIf="!authService.user" class="navbar-brand" routerLink="/singup"
+    >Rejestracja</a
+  >
+  <span *ngIf="authService.user">witaj: {{ authService.user.email }}</span>
+</nav>
 
-  </nav>
-  <router-outlet></router-outlet>
-
-
+<router-outlet></router-outlet>
