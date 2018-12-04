@@ -31,6 +31,7 @@ export class EditComponent implements OnInit {
     public authService: AuthService
   ) {
     this.createForm();
+    this.emailSend();
   }
   createForm() {
     this.updateForm = this.fb.group({
@@ -55,7 +56,6 @@ export class EditComponent implements OnInit {
     const reader = new FileReader();
     reader.onload = () => {
       this.imagePreview = <string>reader.result;
-      // console.log(this.imagePreview);
     };
 
     reader.readAsDataURL(file);
@@ -101,8 +101,8 @@ export class EditComponent implements OnInit {
         heroes,
         this.updateForm.value.description,
         owner,
-        emailChekbox,
         email,
+        emailChekbox,
         access,
         this.updateForm.value.image
       )
@@ -121,7 +121,7 @@ export class EditComponent implements OnInit {
         return this.issue;
       });
   }
-  // login(formData: NgForm) {
-  //   this.authService.login(formData.value.email, formData.value.password);
-  // }
+  emailSend() {
+    this.issueService.emailSend(this.issue.author);
+  }
 }

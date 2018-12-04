@@ -1,7 +1,6 @@
-<div class="container-fluid main-container-fluid">
-  <section><h2 class="h2">Nowa Ksiązka</h2></section>
+<div class="container-fluid">
   <div class="row">
-    <div class="col-sm-12 col-md-8">
+    <div class="col-sm-12 col-lg-8">
       <mat-divider></mat-divider>
       <mat-card>
         <form [formGroup]="createForm" class="createForm">
@@ -130,14 +129,18 @@
             <button mat-stroked-button type="button" (click)="fileGet.click()">
               Dodaj zdjęcie
             </button>
-            <input type="file" #fileGet (change)="onImagePiked($event)" />
+            <input
+              type="file"
+              style="visibility: hidden"
+              #fileGet
+              (change)="onImagePiked($event)"
+            />
           </div>
 
           <mat-divider></mat-divider>
           <br /><br />
 
           <button
-            EmailDirective
             type="submit"
             (click)="
               addIssue(
@@ -159,20 +162,25 @@
             Dodaj
           </button>
         </form>
-        <div class="col-sm-12 col-md-4 border">
-          <p>Zdjęcie twojej Ksiązki</p>
-          <img
-            class="image-preview"
-            *ngIf="
-              imagePreview !== '' &&
-              imagePreview &&
-              createForm.get('image').valid
-            "
-            [src]="imagePreview"
-            [alt]="createForm.value.title"
-          />
-        </div>
       </mat-card>
+    </div>
+    <div class="col-sm-12 col-lg-4 text-center">
+      <p>Zdjęcie twojej Ksiązki</p>
+      <img
+        class="image-preview"
+        *ngIf="
+          imagePreview !== '' && imagePreview && createForm.get('image').valid;
+          else: noImg
+        "
+        [src]="imagePreview"
+        [alt]="createForm.value.title"
+      />
     </div>
   </div>
 </div>
+<ng-template #noImg>
+  <img
+    src="http://localhost:4000/images/emotic/defaultBook.jpg"
+    alt="Domyśleme zdjęcie"
+  />
+</ng-template>

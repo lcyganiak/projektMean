@@ -24,10 +24,14 @@
     "firebase": "^5.5.8",
     "image-type": "^3.0.0",
     "install": "^0.12.1",
+    "mailgun-js": "^0.22.0",
+    "mailgun.js": "^2.0.1",
     "mongodb": "^3.1.6",
     "mongodb-autoincrement": "^1.0.1",
     "mongoose": "^5.3.2",
     "multer": "^1.4.1",
-    "npm": "^6.4.1"
+    "npm": "^6.4.1",
+    "pug": "^2.0.3",
+    "sails-hook-email": "^0.12.1"
   }
 }

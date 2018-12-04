@@ -9,6 +9,7 @@
         <form [formGroup]="updateForm" class="editForm">
           <mat-form-field class="field-fule-width ">
             <input
+              id="title"
               matInput
               placeholder="Tytuł"
               formControlName="title"
@@ -17,6 +18,7 @@
           </mat-form-field>
           <mat-form-field class="field-fule-width ">
             <input
+              id="author"
               matInput
               placeholder="Autor"
               formControlName="author"
@@ -25,6 +27,7 @@
           </mat-form-field>
           <mat-form-field class="field-fule-width ">
             <input
+              id="category"
               matInput
               placeholder="Karegoria"
               formControlName="category"
@@ -33,6 +36,7 @@
           </mat-form-field>
           <mat-form-field class="field-fule-width ">
             <input
+              id="heroes"
               matInput
               placeholder="Bohaterowie"
               formControlName="heroes"
@@ -97,6 +101,7 @@
           </div>
           <mat-form-field class="field-fule-width ">
             <input
+              id="email"
               matInput
               placeholder="E-mail"
               formControlName="email"
@@ -117,6 +122,7 @@
 
           <mat-form-field class="field-fule-width ">
             <input
+              id="owner"
               matInput
               placeholder="Właściciel"
               formControlName="owner"
@@ -140,6 +146,7 @@
           <br /><br />
 
           <button
+            appEmail
             type="submit"
             (click)="
               updateIssue(
@@ -149,6 +156,7 @@
                 heroes.value,
                 description,
                 email.value,
+                emailChekbox.value,
                 owner.value,
                 access.value,
                 imagePreview

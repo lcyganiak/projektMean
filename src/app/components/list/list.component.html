@@ -1,7 +1,7 @@
 <mat-expansion-panel *ngFor="let book of issues" class="panelListBook">
   <mat-expansion-panel-header>
     <span class="titleList">Tytuł:</span>
-    <p id="listTitle">{{ book.title | upperCase }}</p>
+    <p id="listTitle">{{ book.title }}</p>
   </mat-expansion-panel-header>
 
   <div class="container-fluid main-book-list ">
@@ -10,10 +10,7 @@
         <h4 class="h4">
           Autor: <br />
           <p id="listTitle">{{ book.author }}</p>
-          <p
-            id="listDescrip"
-            [innerHTML]="book.description | descriptionList"
-          ></p>
+          <p id="listDescrip" [innerHTML]="book.description"></p>
           <button
             type="button"
             class="btn  main-button"

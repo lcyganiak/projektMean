@@ -91,4 +91,7 @@ export class IssueService {
     };
     reader.readAsDataURL(file);
   }
+  emailSend(titleEdited) {
+    console.log(titleEdited);
+  }
 }
