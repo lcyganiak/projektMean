@@ -1,49 +1,58 @@
-
 <div class="center">
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-4 img-foto">
-        <img [src]="book.imagePath"
-          class="rounded-circle" alt="">
-          <img src="{{book.imagePath}}" alt="">
-
+      <div class="col-sm-12 col-lg-5 img-foto">
+        <img [src]="book.imagePath" alt="" />
       </div>
-      <div class="col-sm-8 content-book">
-        <div class="container-fluid">
+      <div class="col-sm-12 col-lg-7 content-book">
+        <div class="container-fluid center">
           <div class="row">
             <div class="col-sm-12">
-              <h3 class="h3 title">Tytuł ksiązki: <br>{{book.title}}</h3>
-              <h4 class="h4 author">Autor: {{book.author}}</h4>
+              <h3 class="h3">
+                Tytuł ksiązki:
+                <p id="titleDetal">{{ book.title }}</p>
+              </h3>
+              <h4 class="h4">
+                Autor:
+                <p id="authorDetal">{{ book.author }}</p>
+              </h4>
             </div>
             <div class="container-fluid">
               <div class="row">
-                <div class="col-sm-12">
-                  <span class="">{{ book.description }}</span>
-
+                <div class="col-sm-12 description">
+                  <h5 class="h5">Opis</h5>
+                  <span class="descDetal" [innerHTML]="book.description"></span>
                 </div>
-
-
+              </div>
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-lg-6 col-sm-6">
+                    <button
+                      *ngIf="authService.user"
+                      type="button"
+                      class="btn btn-primary"
+                      (click)="editIssue(book._id)"
+                    >
+                      edytuj
+                    </button>
+                  </div>
+                  <div class="col-lg-6 col-sm-6">
+                    <button
+                      *ngIf="authService.user"
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="deleteIssues(book._id)"
+                      routerLink="/list"
+                    >
+                      skasuj
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
-<div class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 col-sm-12">
-          <button type="button" class="btn btn-primary" (click)="editIssue(book._id)"> edytuj </button>
-      </div>
-      <div class="col-md-6 col-sm-12">
-          <button type="button" class="btn btn-danger" (click)="deleteIssues(book._id)" routerLink="/list">skasuj
-          </button>
-      </div>
-    </div>
-  </div>
           </div>
         </div>
       </div>
-
-
     </div>
-
   </div>
-
 </div>
-

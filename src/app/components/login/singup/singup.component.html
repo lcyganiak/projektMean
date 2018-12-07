@@ -1,0 +1,16 @@
+<form (ngSubmit)="signup(formSingup)" #formSingup="ngForm">
+  <div style="display: inline-grid; margin: 10px">
+    <label>E-mail</label> <input ngModel type="email" name="email" required />
+
+    <label>Hasło</label>
+    <input ngModel type="password" name="password" required />
+
+    <button
+      type="button"
+      [disabled]="formSingup.invalid"
+      (click)="signup(formSingup)"
+    >
+      Rejestracja
+    </button>
+  </div>
+</form>

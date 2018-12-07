@@ -4,54 +4,66 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Issue } from '../../issue.model';
 import { MatSnackBar } from '@angular/material';
-
-
-
-
+import { AuthService } from 'src/app/service/auth.service';
+import { ActivButtonService } from 'src/app/service/ActivButtonService';
 
 @Component({
   selector: 'app-detal',
   templateUrl: './detal.component.html',
-  styleUrls: ['./detal.component.css']
+  styleUrls: ['./detal.component.scss']
 })
 export class DetalComponent implements OnInit {
   book: any = {};
   id: String;
   detalForm: FormGroup;
   issues: Issue[];
+  totalBook = 10;
+  bookPerPage = 5;
+  currentPage = 1;
+  pageSizeOptions = [];
 
-  constructor(private issueService: IssueService, private router: Router,
-    private route: ActivatedRoute, private fb: FormBuilder, private snackBar: MatSnackBar) {
-      this.detalsForm();
-     }
+  constructor(
+    private issueService: IssueService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar,
+    public authService: AuthService,
+    public activButtonService: ActivButtonService
+  ) {
+    this.detalsForm();
+  }
 
-    detalsForm() {
-      this.detalForm = this.fb.group({
-        title: '',
-        author: '',
-        category: '',
-        heroes: '',
-        description: '',
-        email: '',
-        owner: '',
-        access: '',
-        image: ''
+  detalsForm() {
+    this.detalForm = this.fb.group({
+      title: '',
+      author: '',
+      category: '',
+      heroes: '',
+      description: '',
+      email: '',
+      owner: '',
+      access: '',
+      image: '',
+      imagePath: ''
+    });
+  }
+  editIssue(id) {
+    this.router.navigate([`/edit/${id}`]);
+  }
+  deleteIssues(id) {
+    this.issueService.deleteIssues(id).subscribe(() => {
+      this.fetchIssues();
+    });
+  }
+  fetchIssues() {
+    this.issueService
+      .getIssues(this.bookPerPage, this.currentPage)
+      .subscribe((data: Issue[]) => {
+        this.issues = data;
+        return this.issues;
       });
-     }
-     editIssue(id) {
-   this.router.navigate([`/edit/${id}`]);
- }
- deleteIssues(id) {
-  this.issueService.deleteIssues(id).subscribe(() => {
-    this.fetchIssues();
-  });
-}
-fetchIssues() {
-  this.issueService.getIssues().subscribe((data: Issue[]) => {
-this.issues = data;
- return this.issues;
-  });
-}
+  }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
@@ -67,8 +79,8 @@ this.issues = data;
         this.detalForm.get('owner').setValue(this.book.owner);
         this.detalForm.get('access').setValue(this.book.access);
         this.detalForm.get('image').setValue(this.book.image);
+        this.detalForm.get('imagePath').setValue(this.book.imagePath);
       });
     });
   }
-
- }
+}
