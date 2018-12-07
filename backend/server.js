@@ -205,6 +205,7 @@ router
               ' na ' +
               req.body.owner +
               '. ' +
+              ' <br >' +
               ' <br >';
           } else htmlmesage = htmlmesage;
           var data = {
@@ -212,7 +213,11 @@ router
             to: issue.email,
             cc: 'lukaszcyganiak4@gmail.com',
             subject: 'Wiadomości ze strony "Bilblioteka Billenium" ',
-            html: htmlmesage
+            html:
+              htmlmesage +
+              '<b> ' +
+              'Pozdrawiamy zespół Biblioteka Billennium' +
+              '</b>'
           };
           mailgun.messages().send(data, function(error, body) {});
         }
